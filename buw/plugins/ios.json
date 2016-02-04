@@ -1,0 +1,61 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-social-message": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "phonegap-plugin-push": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        },
+        "de.appplant.cordova.plugin.local-notification": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-app-event": {
+            "PACKAGE_NAME": "br.com.nameu.buw"
+        }
+    }
+}

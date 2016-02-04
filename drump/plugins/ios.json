@@ -1,0 +1,51 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-barcodescanner": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-x-socialsharing": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-social-message": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "br.com.nameu.drump"
+        }
+    },
+    "dependent_plugins": {}
+}
