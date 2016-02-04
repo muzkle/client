@@ -9,6 +9,8 @@ Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "buw", "buw\buw.jsproj", "{3
 EndProject
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "drump", "drump\drump.jsproj", "{36E94517-5BDD-4EEF-93DF-F1D9336D9117}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "releases", "releases", "{9A2966D3-E24A-4879-B21A-A2878EC7999C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
@@ -176,5 +178,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{39B5BFD7-9C1E-4068-B44C-4CEA50267387} = {9A2966D3-E24A-4879-B21A-A2878EC7999C}
+		{36E94517-5BDD-4EEF-93DF-F1D9336D9117} = {9A2966D3-E24A-4879-B21A-A2878EC7999C}
 	EndGlobalSection
 EndGlobal
