@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+ï»¿angular.module('starter.services', [])
 
 .factory('ProductService', function () {
     // Might use a resource here that returns a JSON array
@@ -26,8 +26,8 @@ angular.module('starter.services', [])
         img: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
     }, {
         id: 4,
-        name: 'Calça',
-        lastText: 'Calça de camursa',
+        name: 'CalÃ§a',
+        lastText: 'CalÃ§a de camursa',
         img: 'https://pbs.twimg.com/profile_images/479090794058379264/84TKj_qa.jpeg'
     }];
 
