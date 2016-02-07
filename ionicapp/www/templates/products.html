@@ -1,5 +1,11 @@
-<ion-view view-title="Browse">
-  <ion-content>
-    <h1>Produtos</h1>
-  </ion-content>
-</ion-view>
+<div ng-controller="ProductsCtrl">
+    <h1>Produtos {{products.lenght}}</h1>
+    <ion-list>
+        <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="product in products" type="item-text-wrap" href="#/tab/chats/{{product.id}}">
+            <img ng-src="{{product.img}}">
+            <h2>{{product.name}}</h2>
+            <p>{{product.lastText}}</p>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+    </ion-list>
+</div>

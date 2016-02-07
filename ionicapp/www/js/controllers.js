@@ -69,12 +69,12 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ProductsCtrl', function ($scope) {
-
+.controller('ProductsCtrl', function ($scope, ProductService) {
+    $scope.products = ProductService.all();
 })
 
-.controller('ProductCtrl', function ($scope) {
-
+.controller('ProductCtrl', function ($scope, ProductService) {
+    this.products = ProductService.all();
 })
 
 .controller('CartCtrl', function ($scope) {
