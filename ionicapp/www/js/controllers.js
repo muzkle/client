@@ -42,7 +42,39 @@ angular.module('starter.controllers', [])
 })
 
 .controller('HomeCtrl', function ($scope) {
-
+    $scope.options = {
+        isOpen: false,
+        toggleOnClick: true,
+        background: 'white',
+        color: 'black',
+        size: 'big',
+        button: {
+            content: '',
+            cssClass: 'fa NameU_Logo',
+            size: 'big'
+        },
+        items: [
+            {
+                cssClass: 'icon ion-person-stalker',
+                isActive: true,
+                onclick: $scope.switchType
+            }, {
+                cssClass: 'icon ion-bag',
+                onclick: $scope.switchType
+            }, {
+                cssClass: 'icon ion-ios-heart',
+                onclick: $scope.switchType
+            },
+            {
+                cssClass: 'icon ion-network',
+                isActive: true,
+                onclick: $scope.switchType
+            }, {
+                cssClass: 'icon ion-search',
+                onclick: $scope.switchType
+            }
+        ]
+    };
 })
 
 .controller('CategoriesCtrl', function ($scope) {
