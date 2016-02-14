@@ -57,7 +57,10 @@ angular.module('starter.controllers', [])
             {
                 cssClass: 'icon ion-person-stalker',
                 isActive: true,
-                onclick: $scope.switchType
+                onclick: function (options, clicked) {                    
+                    clicked.isActive = true;
+                    alert("teste")
+                }
             }, {
                 cssClass: 'icon ion-bag',
                 onclick: $scope.switchType
