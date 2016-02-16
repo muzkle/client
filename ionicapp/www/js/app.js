@@ -82,11 +82,11 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         }
     })
 
-    .state('app.produts', {
-        url: '/produts',
+    .state('app.products', {
+        url: '/products',
         views: {
             'menuContent': {
-                templateUrl: 'templates/produts.html',
+                templateUrl: 'templates/products.html',
                 controller: 'ProductsCtrl'
             }
         }

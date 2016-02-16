@@ -1,0 +1,20 @@
+﻿
+
+
+<div class="tabs tabs-icon-top">
+    <button class="button back-button buttons header-item" onclick="window.history.back()" tabindex="0">
+        <i class="icon ion-chevron-left"></i> Back
+    </button>
+    <button class="button button-icon ion-navicon" menu-toggle="left" style="margin-right: 15px;"></button>
+    <md-input-container class="md-block" style="margin:auto; margin-top: -10px" ng-init="categoriaId = ''" layout="row" layout-align="center center">
+        <md-select name="myModel" ng-model="categoriaId" style="width: 100%">
+            <md-option value="">Escolha uma categoria</md-option>
+            <md-option value="1">One</md-option>
+            <md-option value="2">Two</md-option>
+        </md-select>
+    </md-input-container>    
+    <a class="tab-item" href="#/app/cart">
+        <i class="icon ion-bag"></i>
+        Minha Sacola
+    </a>
+</div>

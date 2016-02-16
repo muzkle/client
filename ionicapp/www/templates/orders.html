@@ -1,5 +1,17 @@
-﻿<ion-view view-title="Pedidos">
+﻿<ion-view view-title="Meus Pedidos">
   <ion-content>
-    <h1>Pedidos</h1>
+      <ul data-role="listview" data-inset="false" class="list_control_my_order ui-listview" id="list_control_my_order_select">
+          <li data-id="93" class="btn_my_order_control ui-li-static ui-body-inherit ui-first-child ui-last-child">
+              <p>NUMERO DO PEDIDO: <span>93</span></p>
+              <p>NOME DA LOJA: <span>BUW FLAGSHIP STORE</span></p>
+              <p>DATA DA COMPRA: <span>02/02/2016 às 00:56</span></p>
+              <p>DATA DO PAGAMENTO: <span>00/00/0000 às 00:00</span></p>
+              <p>VALOR DA COMPRA: <span>402,99</span></p>
+              <p>SITUAÇÃO: <span>Aguardando Pagamento</span></p>
+          </li>
+      </ul>
   </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>

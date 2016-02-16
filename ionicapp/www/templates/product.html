@@ -1,5 +1,51 @@
-﻿<ion-view view-title="Browse">
-  <ion-content>
-    <h1>Produtos</h1>
-  </ion-content>
+﻿<ion-view view-title="Vestido Viés Preto">
+    <ion-content>
+        <div class="top_control">
+            <a class="pos_connect_left ui-link" id="btn_share_product_sku"><img src="img/share.png" width="30px"></a>
+            <a data-rel="back" class="pos_connect_right ui-link" onclick="window.history.back()">
+                <img src="img/fechar.png" width="30px">
+            </a>
+        </div>
+        <div id="product_img" class="owl-carousel owl-theme card_product_full" style="opacity: 1; display: block;min-height: 600px">
+            <div class="item next" style="padding: 0;">
+                <img src="https://s3.amazonaws.com/nameuimage/buw.nameu.com.br/product/33.png?10" width="100%">
+            </div>
+        </div>
+        <div class="product_info">
+            <p class="style_product_name_price" id="product_name_price">
+                <span>Vestido Viés Preto</span><br><span class="price_product_tier_box_grey">de </span>
+                <span class="price_product_tier_box">290,00</span>
+                <span class="tier_product_box_grey">por </span>
+                <span class="tier_product_box">199,99</span>
+            </p>
+            <div class="product_control_source_img"><img src="img/1446147237_like.png" id="btn_wishlist"></div>
+            <div class="box_info_product" id="box_info_product" style="display: block;">
+                <div class="sku_product_dselect">
+                    <div class="ui-select">
+                        <div id="sku_label_01-button" class="ui-btn ui-icon-carat-d ui-btn-icon-right ui-corner-all ui-shadow">
+                            <span class="sku_product">36</span>
+                            <select class="sku_product" id="sku_label_01">
+                                <option value="364" data-price="290.0000" data-tier="199.9900" data-product_name="Vestido Viés Preto">36</option>
+                                <option value="365" data-price="290.0000" data-tier="199.9900" data-product_name="Vestido Viés Preto">38</option>
+                                <option value="366" data-price="290.0000" data-tier="199.9900" data-product_name="Vestido Viés Preto">40</option>
+                                <option value="367" data-price="290.0000" data-tier="199.9900" data-product_name="Vestido Viés Preto">42</option>
+                                <option value="368" data-price="290.0000" data-tier="199.9900" data-product_name="Vestido Viés Preto">44</option>
+                                <option value="369" data-price="290.0000" data-tier="199.9900" data-product_name="Vestido Viés Preto">46</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <button class="class_buy_close product_control_source_control ui-btn ui-shadow ui-corner-all" id="btn_buy_cart" onclick="document.location.href = '#/app/cart'">COMPRE AGORA</button>
+                <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+                    <input type="number" id="sku_amount" class="sku_product_input" value="1">
+                </div>
+            </div>
+            <div id="box_notinfo_product" style="display: none;">
+                <p>PRODUTO EM CATÁLOGO</p>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>

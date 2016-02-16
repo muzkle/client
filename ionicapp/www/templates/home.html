@@ -1,14 +1,12 @@
-<ion-view view-title="UAPPS" layout="row" layout-align="center center" ng-init="showMenu = false">
-    <!--<div class="menu_btn" ng-click="showMenu = !showMenu">
-        <span class="bar01 NameU-menu-icon icons_0" ng-if="showMenu"><img src="img/button-user.png"></span>
-        <span class="bar02 NameU-menu-icon icons_0" ng-if="showMenu"><img src="img/button-cart.png"></span>
-        <span class="bar03 NameU-menu-icon icons_0" ng-if="showMenu"><img src="img/button-fav.png"></span>
-        <span class="bar04 NameU-menu-icon icons_0" ng-if="showMenu"><img src="img/button-social.png"></span>
-        <span class="bar05 NameU-menu-icon icons_0" ng-if="showMenu"><img src="img/button-search.png"></span>
-        <div class="menu_center_control">
-            <img src="img/menu-float.png" id="menu_center_0" data-situation="0">
-        </div>
-    </div>-->
-
-    <circular options="options"> </circular>
+<ion-view view-title="UAPPS">
+    <ng-include layout="row" layout-align="center center" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0" src="'templates/shared/_circular-menu.html'"></ng-include>
+    <ion-content>
+        <ng-include ng-controller="VitrineCtrl" src="'templates/shared/_vitrine.html'"></ng-include>
+    </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer-home.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>
+
+
+

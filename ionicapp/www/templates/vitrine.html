@@ -1,5 +1,10 @@
-﻿<ion-view view-title="Browse">
-  <ion-content>
-    <h1>Store Addresses</h1>
-  </ion-content>
+﻿<ion-view view-title="Vitrine">
+    <ng-include layout="row" layout-align="center center" style="position: absolute; left: 0; right: 0; top: 0; bottom: 0" src="'templates/shared/_circular-menu.html'"></ng-include>
+    <ion-content>
+        <ng-include src="'templates/shared/_vitrine.html'"></ng-include>
+    </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer-vitrine.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>
+

@@ -42,6 +42,11 @@ angular.module('starter.controllers', [])
 })
 
 .controller('HomeCtrl', function ($scope) {
+    
+})
+
+.controller('CircularMenuCtrl', function ($scope) {
+
     $scope.options = {
         isOpen: false,
         toggleOnClick: true,
@@ -57,7 +62,7 @@ angular.module('starter.controllers', [])
             {
                 cssClass: 'icon ion-person-stalker',
                 isActive: true,
-                onclick: function (options, clicked) {                    
+                onclick: function (options, clicked) {
                     clicked.isActive = true;
                     alert("teste")
                 }

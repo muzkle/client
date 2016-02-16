@@ -1,5 +1,91 @@
-﻿<ion-view view-title="Browse">
-  <ion-content>
-    <h1>Carrinho</h1>
-  </ion-content>
+﻿<ion-view view-title="Minha Sacola">
+    <ion-content>
+        <div id="control_cart_close" style="display: none;">
+            <ul data-role="listview" class="list_class_dados_center ui-listview">
+                <li class="ui-first-child ui-last-child">
+                    <a href="#" onclick="mylocal()" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Entrar em uma Loja</a>
+                </li>
+            </ul>
+        </div>
+        <div id="control_cart_open" style="display: block;">
+            <div class="NemeU-txtalign-ctr cart_count_control" id="qtde_items_cart">VOCÊ TEM 2 PRODUTO(S) ADICIONADO(S) À SACOLA.</div>
+            <div class="NemeU-txtalign-ctr" id="products_cart_control_show" style="display: block;">
+                <div class="risk_cart_open">CLIQUE PARA VISUALIZAR OS PRODUTOS</div>
+                <div id="btn_open_click">
+                    <img src="img/down.png" width="30px" height="30px">
+                </div>
+            </div>
+
+            <div class="NameU-yes-content">
+                <ul data-role="listview" class="list_cart_close ui-listview" id="list_cart_control" style="display: block;">
+                    <li data-id="36" data-sku="378" data-type="0" class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child">
+                        <img src="https://s3.amazonaws.com/nameuimage/buw.nameu.com.br/product/36.png?229" class="store_search_item">
+                        <h4 class="store_search_item">Blazer FC Cinza</h4>	<img src="img/fechar.png" width="30px" class="remove_control_item_cart" data-id="117">
+                        <div class="ui-grid-a sku_control_cart">
+                            <div class="ui-block-a">        Tamanho    </div>
+                            <div class="ui-block-b">
+                                <span class="control_select_sku_cart">          38       </span>
+                            </div>
+                        </div>     <div class="ui-grid-a sku_control_cart">
+                            <div class="ui-block-a">            QUANTIDADE        </div>
+                            <div class="ui-block-b">
+                                <span class="control_select_sku_cart">                9            </span>
+                            </div>
+                        </div>
+                        <p data-id="378" class="store_search_item"><span class="tier_product_box_grey">por </span><span class="tier_product_box">199,00</span></p>
+                    </li>
+                    <li data-id="33" data-sku="364" data-type="0" class="ui-li-static ui-body-inherit ui-li-has-thumb ui-last-child">
+                        <img src="https://s3.amazonaws.com/nameuimage/buw.nameu.com.br/product/33.png?288" class="store_search_item">
+                        <h4 class="store_search_item">Vestido Viés Preto</h4>	<img src="img/fechar.png" width="30px" class="remove_control_item_cart" data-id="131">
+                        <div class="ui-grid-a sku_control_cart">
+                            <div class="ui-block-a">        Tamanho    </div>
+                            <div class="ui-block-b">
+                                <span class="control_select_sku_cart">          36       </span>
+                            </div>
+                        </div>
+                        <div class="ui-grid-a sku_control_cart">
+                            <div class="ui-block-a">            QUANTIDADE        </div>        <div class="ui-block-b">
+                                <span class="control_select_sku_cart">                1            </span>
+                            </div>
+                        </div>	<p data-id="364" class="store_search_item">
+                            <span class="price_product_tier_box_grey">de </span>
+                            <span class="price_product_tier_box">290,00</span>
+                            <span class="tier_product_box_grey">por </span>
+                            <span class="tier_product_box">199,99</span>
+                        </p>
+                    </li>
+                </ul>
+                <div class="control_cart_select" id="fieldset_shipping">
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" class="ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini">
+                        <div class="ui-controlgroup-controls ">
+                            <div class="ui-radio ui-mini">
+                                <label for="shipping_12" class="control_select_shipping ui-btn ui-corner-all ui-btn-inherit ui-radio-on ui-btn-active ui-first-child">ENTREGAR AQUI</label>
+                                <input type="radio" name="shipping_type" id="shipping_12" value="12" checked="checked" style="display:none">
+                            </div> <div class="ui-radio ui-mini">
+                                <label for="shipping_11" class="control_select_shipping ui-btn ui-corner-all ui-btn-inherit ui-radio-off ui-last-child">RETIRAR NA LOJA</label>
+                                <input type="radio" name="shipping_type" id="shipping_11" value="11" style="display:none">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+            <div class="control_cart_select_shipping">
+                <button type="button" class="btn btn_update_shipping ui-btn ui-shadow ui-corner-all" onclick="mylocal()">MUDAR DE SACOLA OU ENDEREÇO</button>
+            </div>
+            <div class="NemaU-linha"></div>
+            <div>
+                <p class="title_header_profile">SEU ENDEREÇO ATUAL</p>
+                <ul data-role="listview" class="list_class_dados_center ui-listview" id="mylocal_profile_cart"><li onclick="mylocal()" class="ui-li-static ui-body-inherit ui-first-child ui-last-child">	R. Lagoa Garopaba<br> 194-252 -  08141-570 - Itaim Paulista</li></ul>
+            </div>
+            <div id="mystore_cart_current">
+                <p class="title_header_profile">SUA LOJA ATUAL</p>
+                <ul data-role="listview" class="list_class_dados_center_notbdbt ui-listview" id="mystore_profile_cart"><li data-id="14" onclick="mylocal()" class="ui-li-static ui-body-inherit ui-first-child ui-last-child">	<strong>BUW - BUW FLAGSHIP STORE</strong>	<div class="NameU-dados-aff"><br>Avenida Ibirapuera, 3103 - Piso Térreo<br>Moema - São Paulo<br>04029902 - SP - Brasil<br>Tel.: (11) 50493168<br>buw.ibirapuera@buwbrasil.com</div></li></ul>
+            </div>
+        </div>
+    </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer-cart.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>
+
+
