@@ -45,7 +45,7 @@ angular.module('starter.controllers', [])
     
 })
 
-.controller('CircularMenuCtrl', function ($scope) {
+.controller('CircularMenuCtrl', function ($scope, $location) {
 
     $scope.options = {
         isOpen: false,
@@ -63,23 +63,30 @@ angular.module('starter.controllers', [])
                 cssClass: 'icon ion-person-stalker',
                 isActive: true,
                 onclick: function (options, clicked) {
-                    clicked.isActive = true;
-                    alert("teste")
+                    $location.path("/app/my-account");
                 }
             }, {
                 cssClass: 'icon ion-bag',
-                onclick: $scope.switchType
+                onclick: function (options, clicked) {
+                    $location.path("/app/cart");
+                }
             }, {
                 cssClass: 'icon ion-ios-heart',
-                onclick: $scope.switchType
+                onclick: function (options, clicked) {
+                    $location.path("/app/bookmarks");
+                }
             },
             {
                 cssClass: 'icon ion-network',
                 isActive: true,
-                onclick: $scope.switchType
+                onclick: function (options, clicked) {
+                    $location.path("/app/social");
+                }
             }, {
                 cssClass: 'icon ion-search',
-                onclick: $scope.switchType
+                onclick: function (options, clicked) {
+                    $location.path("/app/search");
+                }
             }
         ]
     };

@@ -1,9 +1,117 @@
 ﻿<ion-view view-title="Minha Conta">
-  <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+
+        <ul data-role="listview" class="list_class_dados ui-listview ui-listview-inset ui-corner-all ui-shadow" data-inset="true" id="list_profile_user">
+            <li id="profile_dados" class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child"><img src="img/side-connect.png" class="NameU-profile-image"><div class="NameU-profile-dados">persii<br><small>flexa@live.com<small></small></small></div></li>
+            <li class="ui-li-static ui-body-inherit">
+                <legend class="NameU-img-center" id="btn_form_updatepass"><img src="img/down.png" class="img_open_control_singup" width="30px" height="30px"> MINHAS INFORMAÇÕES </legend>
+                <div class="form_updatepass" id="form_profile" style="display: block;">
+                    <br>
+                    <div class="NameU-label">PRIMEIRO NOME</div>
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a">
+                            <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+                                <input type="text" class="input_control_uppercase" placeholder="INFORME O PRIMEIRO NOME" id="profile_firstname">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="NameU-label">SOBRENOME</div>
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a">
+                            <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="input_control_uppercase" placeholder="INFORME O SOBRENOME" id="profile_lastname"></div>
+                        </div>
+                    </div>
+                    <div class="NameU-label">CPF</div>
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a">
+                            <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+                                <input type="text" class="input_control_uppercase" placeholder="INFORME O CPF" id="profile_document">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="NameU-label">DATA DE NASCIMENTO</div>
+                    <div class="ui-grid-solo">
+                        <div class="ui-block-a">
+                            <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+                                <input type="date" class="input_control_uppercase" placeholder="INFORME O SEXO" id="profile_birthdate">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="NameU-label">SEXO</div>
+                    <div class="control_cart_select" id="div_fielset_profile_sexo">
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" class="NameU-center ui-controlgroup ui-controlgroup-horizontal ui-corner-all ui-mini" id="fielset_profile_sexo">
+                            <div class="ui-controlgroup-controls ">
+                                <div class="ui-radio ui-mini">
+                                    <label for="profile_sexo_0" class="control_select_shipping ui-btn ui-corner-all ui-btn-inherit ui-btn-active ui-radio-on ui-first-child">MASCULINO</label>
+                                    <input type="radio" name="profile_sexo" id="profile_sexo_0" value="0" checked="checked">
+                                </div>
+
+                                <div class="ui-radio ui-mini">
+                                    <label for="profile_sexo_1" class="control_select_shipping ui-btn ui-corner-all ui-btn-inherit ui-radio-off ui-last-child">FEMININO</label>
+                                    <input type="radio" name="profile_sexo" id="profile_sexo_1" value="1">
+                                </div>
+
+                            </div>
+                        </fieldset>
+                    </div>
+                    <button type="button" class="btn_def_log btn_logoff ui-btn" id="btn_profile_save">SALVAR</button>
+                </div>
+            </li>
+            <li data-theme="d" class="ui-last-child">
+                <a href="#vw_pushu" data-transition="slide" class="message_push_list ui-btn ui-btn-d ui-btn-icon-right ui-icon-carat-r"><span id="count_push">0</span> Mensagens</a>
+            </li>
+        </ul>
+        <div class="NameU-yes-content">
+            <button type="button" class="btn_def_log btn_logoff ui-btn" id="btn_access_store_loja" style="display: none;">ENTRAR NA LOJA</button>
+            <div id="list_local_store_show">
+                <div class="NemaU-linha"></div>
+                <h5 class="title_header_profile">SEU ENDEREÇO ATUAL</h5>
+                <ul data-role="listview" class="list_class_dados_center ui-listview" id="mylocal_profile">
+                    <li onclick="mylocal()" class="ui-li-static ui-body-inherit ui-first-child ui-last-child">	R. Lagoa Garopaba<br> 194-252 -  08141-570 - Itaim Paulista</li>
+                </ul>
+                <h5 class="title_header_profile">SUA LOJA ATUAL</h5>
+                <ul data-role="listview" class="list_class_dados_center ui-listview" id="mystore_profile">
+                    <li data-id="14" onclick="mylocal()" class="ui-li-static ui-body-inherit ui-first-child ui-last-child">
+                        <strong>BUW - BUW FLAGSHIP STORE</strong>	<div class="NameU-dados-aff"><br>Avenida Ibirapuera, 3103 - Piso Térreo<br>Moema - São Paulo<br>04029902 - SP - Brasil<br>Tel.: (11) 50493168<br>buw.ibirapuera@buwbrasil.com</div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div id="div_flvalid">
+                <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right" data-theme="c" class="ui-collapsible ui-collapsible-inset ui-corner-all ui-collapsible-themed-content">
+                    <h4 class="ui-collapsible-heading">
+                        <a href="#" class="ui-collapsible-heading-toggle ui-btn ui-btn-icon-right ui-btn-c ui-icon-carat-u">VALIDAR PERFIL<span class="ui-collapsible-heading-status"> click to collapse contents</span></a>
+                    </h4>
+                    <div class="ui-collapsible-content ui-body-inherit" aria-hidden="false">
+                        <ul data-role="listview" data-inset="false" class="ui-listview">
+                            <li class="ui-li-static ui-body-inherit ui-first-child ui-last-child">
+                                <div class="ui-grid-solo">
+                                    <div class="ui-block-a"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="input_control" placeholder="DIGITE O CÓDIGO" id="validate_token"></div></div>
+                                </div>			<div class="ui-grid-solo">
+                                    <div class="ui-block-a">
+                                        <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+                                            <input type="password" class="input_control form_control_adjust adjust_control_input" placeholder="SUA SENHA" id="validate_senha">
+                                        </div>
+                                        <button type="button" class="btn_control_uppass adjust_control_input btn_acert_user ui-btn ui-shadow ui-corner-all" onclick="btn_validate()">Validar</button>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="NemaU-linha"></div>
+            <h4 class="title_header_profile">SEUS DISPOSITIVOS</h4>
+            <ul data-role="listview" class="list_class_dados_center ui-listview" id="my_list_device"></ul>
+        </div>
+
+
+
+        <!--<ion-list>
+            <ion-toggle ng-model="settings.enableFriends">
+                Enable Friends
+            </ion-toggle>
+        </ion-list>-->
+    </ion-content>
 </ion-view>

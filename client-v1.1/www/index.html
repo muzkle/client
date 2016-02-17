@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<!--
+    Projeto desenvolvido por : UAPPS
+    Desenvolvedores: Marcio Ribeiro da Cruz / José Airton Souza Junior
+    UX: Guilherme Saved
+    Projeto: Cesare Rollo Iacovone
+    Plataforma: nameU
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"/>
+        <link rel="stylesheet" type="text/css" href="css/fonts.css" charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
+        <link rel="stylesheet" type="text/css" href="css/themes/nameu.css">
+        <link rel="stylesheet" type="text/css" href="css/themes/jquery.mobile.icons.min.css">
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.css">
+        <link rel="stylesheet" type="text/css" href="libs/owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" type="text/css" href="libs/owl-carousel/owl.theme.css">
+        <link rel="stylesheet" type="text/css" href="libs/owl-carousel/owl.transitions.css">
+        <link rel="stylesheet" type="text/css" href="css/icon-fa/css/font-awesome.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <title>APP BUW</title>
+        <script src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+        <script src="js/jquery-1.11.3.js"></script>
+        <script src="js/jquery.mobile-1.4.5.js"></script>
+        <script src="libs/owl-carousel/owl.carousel.js"></script>
+
+        <!-- jquery slide -->
+        <script src="libs/item-slide/itemslide.min.js"></script>
+        <!--Scripts-->
+        <script src="libs/item-slide/sliding.js"></script>
+
+
+    </head>
+    <body>
+
+    <!-- /Wizard-->
+        <div data-role="page" id="vw_wizard" class="">
+            <div id="frame">
+                <ul>
+                    <li>
+
+                          <img src="img/wizard/img-1.jpg" height="100%" width="100%">
+
+                    </li>
+                    <li>
+                        <img src="img/wizard/img-2.jpg" height="100%"  width="100%">
+                    </li>
+                    <li>
+                        <img src="img/wizard/img-3.jpg" height="100%"  width="100%">
+                    </li>
+                    <li onclick="javascript:callgeolocation_fromwinzard();">
+                        <img src="img/wizard/img-4.jpg" height="100%"  width="100%">
+
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- /Home do Aplicativo Seleção -->
+        <div data-role="page" id="vw_home" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_1" data-position="left" data-display="push" data-dismissible="true" data-theme="b">
+            </div>
+            <div  data-role="header" data-position="fixed" class="ios_control NameU-header"  data-tap-toggle="false" >
+                
+
+            </div>
+            <div data-role="content" role="main" class="ui-content css_home">
+                <div id="home_product_more" class="product_random"></div>
+                <div id="socialu_highlight" class="css_socialu">
+                    <div class="area_hash" id="home_social_hash"></div>
+                </div>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false" >
+                <a href="#sidebar_menu_1" class="ui-btn-left ui-btn sacola_cat"><img src="img/menu.png" width="30px" height="30px"></a>
+                <a href="#" onclick="mylocal()" class="ui-btn-right sacola_cat"><img src="img/sacola-off.png" class="NameU-img-sacola" width="30px" height="27px"></a>
+                <p class="btn-footer NameU-btn-footer" onclick="category()"><span>selecione uma categoria <img src="img/carat-top.png" width="30px" height="10px"></span></p>
+                
+				<div class="menu_btn">
+                    <span class="bar01 NameU-menu-icon icons_0"><img src="img/button-user.png"></span> 
+                    <span class="bar02 NameU-menu-icon icons_0"><img src="img/button-cart.png"></span> 
+                    <span class="bar03 NameU-menu-icon icons_0"><img src="img/button-fav.png"></span>
+                    <span class="bar04 NameU-menu-icon icons_0"><img src="img/button-social.png"></span> 
+                    <span class="bar05 NameU-menu-icon icons_0"><img src="img/button-search.png"></span>
+                    <div class="menu_center_control">
+						<img src="img/menu-float.png" id="menu_center_0" data-situation="1">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /Categorias -->
+        <div data-role="page" id="vw_category"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" id="header_01">
+                <h1 class="ui-title title_header_top" role="heading">CATEGORIAS</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/fechar.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                <ul data-role="listview" class="list_class_category" id="category_list"></ul>
+            </div>
+        </div>
+        
+        <!-- /Pesquisa -->
+        <div data-role="page" id="vw_search"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <input type="text" placeholder="Digite o que procura" class="input_search_control" id="text_search">
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/fechar.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                <ul data-role="listview" class="list_class_search" id="search_list">
+                     <li data-id="0" data-sku="0" >
+                         <img src="img/02.png" class="store_search_item">
+                         <h4  class="store_search_item">Saia e menina</h4>
+                         <p  class="store_search_item">*****</p>
+                         <p  class="store_search_item"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                         <p><button data-id="0" data-sku="0" class="class_buy">COMPRE AGORA</button></p>
+                     </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- /Endereço de Lojas -->
+        <div data-role="page" id="vw_affiliate"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">DEFINA SUA LOCALIZAÇÃO</h1>
+                <a href="#" onclick="NameU_Back()" class="ui-btn-left NameU-img-icon"><img src="img/fechar.png"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+				<input type="text" class="input_control_uppercase" id="affiliate_logradouro_rua" placeholder="Digite o endereço de entrega">
+				<div class="ui-grid-b">
+					<div class="ui-block-a"><input type="text" class="input_control_uppercase" id="affiliate_logradouro_numero" placeholder="NÚMERO"></div>
+					<div class="ui-block-b"><input type="text" class="input_control_uppercase" id="affiliate_logradouro_cep" placeholder="CEP"></div>
+					<div class="ui-block-c"><input type="text" class="input_control_uppercase" id="affiliate_logradouro_bairro" placeholder="BAIRRO"></div>
+				</div>
+				<div id="div_affiliate_definir_end"><button class="ui-btn btn_def_log NameU-btn" id="affiliate_definir_end">DEFINIR ENDEREÇO</button></div>
+				<h4 class="title_header">ESCOLHA UMA LOJA</h4>
+				<ul data-role="listview" class="list_class_dados_center" id="affiliate_list"></ul>
+            </div>
+        </div>
+        
+        <!-- /Vitrine -->
+        <div data-role="page" id="vw_storeu"  data-theme="a" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_5" data-position="left" data-display="push" data-dismissible="true" data-theme="b">
+            </div>
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                
+            </div>
+            <div data-role="content" role="main" class="ui-content css_home">
+                <ul  data-role="listview" class="list_products_show_case" id="storeu_product_more"></ul>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <a href="#sidebar_menu_5" class="ui-btn-left ui-btn sacola_cat"><img src="img/menu.png" width="30px" height="30px"></a>
+                <a href="#" onclick="mylocal()" class="ui-btn-right sacola_cat"><img src="img/sacola-off.png" class="NameU-img-sacola" width="30px" height="27px"></a>
+                <p class="btn-footer NameU-btn-footer" onclick="category()"><span>selecione uma categoria <img src="img/carat-top.png" width="30px" height="10px"></span></p>
+                
+                <div class="menu_btn">
+                    <span class="bar01 NameU-menu-icon icons_1"><img src="img/button-user.png" width="50%"></span> 
+                    <span class="bar02 NameU-menu-icon icons_1"><img src="img/button-cart.png" width="50%"></span> 
+                    <span class="bar03 NameU-menu-icon icons_1"><img src="img/button-fav.png" width="50%"></span>
+                    <span class="bar04 NameU-menu-icon icons_1"><img src="img/button-social.png" width="50%"></span> 
+                    <span class="bar05 NameU-menu-icon icons_1"><img src="img/button-search.png" width="50%"></span>
+                    <div class="menu_center_control">
+						<img src="img/menu-float.png" id="menu_center_1" data-situation="1">
+                    </div>
+                </div>  
+            </div>
+        </div>
+        
+        <!-- /Produtos -->
+        <div data-role="page" id="vw_product_sku"  data-theme="a" class="div_content">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                
+            </div>
+            <div data-role="content" role="main" class="ui-content control_product_sku">
+                <div class="top_control">
+                    <a href="#" class="pos_connect_left" id="btn_share_product_sku"><img src="img/share.png" width="30px"></a>
+                    <a  href="#" data-rel="back" class="pos_connect_right"><img src="img/fechar.png"  width="30px"></a>
+                </div>
+                <div id="product_img" class="owl-carousel owl-theme card_product_full"></div>
+                <div class="product_info">
+                    <p class="style_product_name_price" id="product_name_price"></p>
+                    <div class="product_control_source_img"><img src="img/1446147237_like.png" id="btn_wishlist"></div>
+                    <div class="box_info_product" id="box_info_product">
+                        <div class="sku_product_dselect"><select class="sku_product" id="sku_label_01"></select></div>
+                        <button class="class_buy_close product_control_source_control" id="btn_buy_cart" onclick="addcart()">COMPRE AGORA</button>
+                        <input type="number" id="sku_amount" class="sku_product_input" value="1">
+                    </div>
+                    <div id="box_notinfo_product">
+						<p>PRODUTO EM CATÁLOGO</p>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                
+            </div>
+        </div>
+        
+        <!-- /Carrinho -->
+        <div data-role="page" id="vw_cart"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">SACOLA</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content cart_check_out">
+                <div id="control_cart_close">
+                    <ul data-role="listview" class="list_class_dados_center">
+                        <li>
+                            <a  href="#" onclick="mylocal()" >Entrar em uma Loja</a>
+                        </li>
+                    </ul>
+                </div> 
+                <div id="control_cart_open">
+                    <div class="NemeU-txtalign-ctr cart_count_control" id="qtde_items_cart"></div>
+                    <div class="NemeU-txtalign-ctr" id="products_cart_control_show">
+                        <div class="risk_cart_open">CLIQUE PARA VISUALIZAR OS PRODUTOS</div>
+                        <div id="btn_open_click">
+                            <img src="img/down.png" width="30px" height="30px">
+                        </div>
+                    </div>
+                    
+					<div class="NameU-yes-content">
+						<ul data-role="listview" class="list_cart_close" id="list_cart_control"></ul>
+						<div class="control_cart_select" id="fieldset_shipping"></div>
+					</div>
+                    <div class="control_cart_select_shipping">
+                        <button type="button" class="btn btn_update_shipping" onclick="mylocal()">MUDAR DE SACOLA OU ENDEREÇO</button>
+                    </div>
+					<div class="NemaU-linha"></div>
+                    <div>
+                        <p class="title_header_profile">SEU ENDEREÇO ATUAL</p>
+                        <ul data-role="listview" class="list_class_dados_center" id="mylocal_profile_cart"></ul> 
+                    </div>
+                    <div id="mystore_cart_current">
+                        <p class="title_header_profile">SUA LOJA ATUAL</p>
+                        <ul data-role="listview" class="list_class_dados_center_notbdbt" id="mystore_profile_cart"></ul>
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false" id="footer_cart_control">
+                <div class="ui-navbar">
+                    <div id="controle" class="control_cart_price">
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">SUB TOTAL</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_subtotal_cart">0,00</div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">DESCONTOS</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_tiertotal_cart">0,00</div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">ENTREGA</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_shipping_cart">0,00</div>
+                        </div>
+                        <div class="ui-grid-b total_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">TOTAL</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_total_cart">0,00</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="nav-bar" class="ui-navbar">
+                    <ul class="ui-grid-solo">
+                        <li class="ui-block-a margin_control_cart_checkout"><button type="button" class="ui-btn btn_def_cart_checkout" id="close_btn_check_out">FINALIZAR COMPRA</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /Fechamento -->
+        <div data-role="page" id="vw_cart_order"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">FINALIZAR COMPRA</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+                <div class="tab_cart_close">
+                    <div class="tab_01 tab_control_active_class">CAIXA</div>
+                    <div class="tab_02">CONFIRMAÇÃO DE PAGAMENTO</div>
+                </div><!-- /navbar -->
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                <div id="div_profile_data">
+                    <div class="form_updatepass" id="form_order_profile">
+                        <div class="NameU-label">PRIMEIRO NOME</div>
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="INFORME O PRIMEIRO NOME" id="profile_order_firstname"></div>
+                        </div>
+                        <div class="NameU-label">SOBRENOME</div>
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="INFORME O SOBRENOME" id="profile_order_lastname"></div>
+                        </div>
+                        <div class="NameU-label">CPF</div>
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="INFORME O CPF" id="order_profile_document"></div>
+                        </div>
+                        <div class="NameU-label">DATA DE NASCIMENTO</div>
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><input type="date" class="input_control_uppercase" placeholder="INFORME O SEXO" id="profile_order_birthdate"></div>
+                        </div>
+                        <div class="NameU-label">SEXO</div>
+						<div class="control_cart_select" id="div_fielset_order_profile_sexo">
+							<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" class="NameU-center" id="fielset_order_profile_sexo">
+								<input type="radio" name="order_profile_sexo" id="order_profile_sexo_0" value="0">
+								<label for="order_profile_sexo_0" class="control_select_shipping">MASCULINO</label>
+								<input type="radio" name="order_profile_sexo" id="order_profile_sexo_1" value="1">
+								<label for="order_profile_sexo_1" class="control_select_shipping">FEMININO</label>
+							</fieldset>
+                        </div>
+                        <div class="NameU-label-top">TELEFONE</div>
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <input type="number" name="creditCardHolderAreaCode" id="creditCardHolderAreaCode" holderField="areaCode" class="areaCode input_control_uppercase" maxlength="2" placeholder="XX" />
+                            </div>
+                            <div class="ui-block-b ui-block-c">
+                                <input type="number" name="creditCardHolderPhone" id="creditCardHolderPhone" holderField="phone" class="phone input_control_uppercase" maxlength="9" placeholder="XXXXX-XXXX"/>
+                            </div>
+                        </div> 
+						<div>
+							<p class="title_header_profile">SEU ENDEREÇO ATUAL</p>
+							<ul data-role="listview" class="list_class_dados_center" id="mylocal_profile_cart_order"></ul> 
+						</div>
+						<br>
+						<div class="NameU-label-top">DADOS COMPLEMENTARES DO ENDEREÇO</div>
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="COMPLEMENTO" id="profile_order_complement"></div>
+                        </div>
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="CIDADE" id="profile_order_city"></div>
+                        </div>
+                        <div class="ui-grid-solo">
+                            <div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="ESTADO" id="profile_order_states"  maxlength="2" size="2"></div>
+                        </div>
+                        <input type="hidden" name="senderHash"    id="">
+                        <input type="hidden" name="paymentMethod" value="">
+                    </div>
+                </div>
+                <div class="NameU-paymanttype" id="div_select_paymenttype"></div>
+                <div class="NameU-paymanttype" id="div_paymenttype"></div>
+                <div id="div_ret_paymenttype"></div>
+			</div>
+			<div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+				<div class="ui-navbar">
+                    <div id="controle" class="control_cart_price">
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">SUB TOTAL</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_subtotal_cart">0,00</div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">DESCONTOS</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_tiertotal_cart">0,00</div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">ENTREGA</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_shipping_cart">0,00</div>
+                        </div>
+                        <div class="ui-grid-b total_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">TOTAL</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c value_cart vlr_total_cart">0,00</div>
+                        </div>
+                    </div>
+                </div>
+                <div data-role="nav-bar" class="ui-navbar">
+                    <ul class="ui-grid-solo">
+                        <li class="ui-block-a margin_control_cart_checkout" id="btn_checkout_order_pay"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /Caixa / Pagamento -->
+        <div data-role="page" id="vw_cart_pay"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">PEDIDO CONCLUÍDO</h1>
+                <div class="tab_cart_close">
+                    <div class="tab_01">CAIXA</div>
+                    <div class="tab_02 tab_control_active_class">CONFIRMAÇÃO DE PAGAMENTO</div>
+                </div><!-- /navbar -->
+            </div>
+            <div data-role="content" role="main" class="ui-content my_order_control">
+                <h5>PEDIDO FINALIZADO COM SUCESSO</h5>
+                <div class="card_my_order_control">
+                    <ul data-role="listview" data-inset="false"  class="list_control_my_order" id="order_list_user_pay"></ul>
+                    <!--
+					<div id="controle" class="control_cart_price">
+                        <p>NUMERO DO PEDIDO: 1</p>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">SUB TOTAL</div>
+                            <div class="ui-block-b"></div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">
+                                DESCONTOS
+                            </div>
+                            <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">
+                                ENTREGA
+                            </div>
+                            <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>
+                        <div class="ui-grid-b total_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">
+                                TOTAL
+                             </div>
+                            <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>
+                    </div> 
+					-->
+                    <ul data-role="listview" class="list_cart_close" id="list_cart_pay_control">
+                        <!--
+						<li data-id="0" data-sku="0" >
+                             <img src="img/02.png" class="store_search_item">
+                             <h4  class="store_search_item">Saia e menina</h4>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    TAMANHO
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        GGG
+                                    </span>
+                                </div>
+                             </div>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    QUANTIDADE
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        1
+                                    </span>
+                                </div>
+                             </div>
+                             <p  class="store_search_item"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                        </li>
+                        <li data-id="0" data-sku="0" >
+                             <img src="img/02.png" class="store_search_item">
+                             <h4  class="store_search_item">Saia e menina</h4>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    TAMANHO
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        GGG
+                                    </span>
+                                </div>
+                             </div>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    QUANTIDADE
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        1
+                                    </span>
+                                </div>
+                             </div>
+                             <p  class="store_search_item"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                        </li>
+                        <li data-id="0" data-sku="0" >
+                             <img src="img/02.png" class="store_search_item">
+                             <h4  class="store_search_item">Saia e menina</h4>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    TAMANHO
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        GGG
+                                    </span>
+                                </div>
+                             </div>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    QUANTIDADE
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        1
+                                    </span>
+                                </div>
+                             </div>
+                             <p  class="store_search_item"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                        </li>
+						-->
+                    </ul>
+                </div>
+                
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <div data-role="nav-bar" class="ui-navbar">
+                    <ul class="ui-grid-solo">
+                        <li class="ui-block-a margin_control_cart_checkout"><button type="button" class="ui-btn btn_def_my_checkout" onclick="NameU_Tredir('#vw_my_order')">ACOMPANHAR PEDIDO</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /Favoritos -->
+        <div data-role="page" id="vw_wishlist"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">MEUS FAVORITOS</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                <div data-role="navbar" class="wish_list_control">
+                    <div id="del_wishlist_product">LIMPAR LISTA</div>
+                </div><!-- /navbar -->
+                <ul data-role="listview" class="list_class_wishlist" id="wishlist_list">
+                     <!--<li data-id="0" data-sku="0" >
+                         <img src="img/02.png" class="store_wishlist_item item_click_wishlist">
+                         <h4  class="store_wishlist_item item_click_wishlist">Saia e menina</h4>
+                         <img src="img/fechar.png"  width="30px" class="remove_control_item_cart">
+                         
+                         <p  class="store_wishlist_item item_click_wishlist"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                         <p><button data-id="0" data-sku="0" class="class_buy item_click_wishlist">COMPRE AGORA</button></p>
+                     </li>-->
+                </ul>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                
+            </div>
+        </div>
+        
+        <!-- /Cadastro / Login / Esqueci / Conectar Facebook / Alterar Senha -->
+        <div data-role="page" id="vw_connect"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">FAÇA LOGIN OU CADASTRE-SE</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content NameU-not-content">
+				<div class="NameU-yes-content"> 
+					<input type="text" class="input_control" id="login_email" placeholder="SEU EMAIL">
+					<input type="password" class="input_control" id="login_password" placeholder="SUA SENHA">
+					<button class="ui-btn btn_def_log" id="login_btn_entrar">ENTRAR</button>
+					<div class="container_uppassword">
+						<legend id="btn_control_pass"><img src="img/down.png" class="img_open_control_singup" width="30px" height="30px"> RECUPERE OU ALTERE SUA SENHA </legend>
+						<div class="form_updatepass" id="form_updatepass_control">
+							<div class="ui-grid-solo NemeU-border-bottom">
+								<div class="ui-block-a">
+									<input type="text" class="input_control_notborder form_control_adjust adjust_control_input" id="remember_email" placeholder="DIGITE O EMAIL DE CADASTRO">
+									<button type="button" class="btn_control_uppass_enviar adjust_control_input btn_acert_user" id="remember_btn_enviar">Enviar</button>
+								</div>
+							</div>
+							<h5 class="title_control">OU ALTERE SUA SENHA</h5>
+							<div class="ui-grid-solo">
+								<div class="ui-block-a"><input type="text" class="input_control" placeholder="INSIRA SEU TOKEN PARA ALTERAR SUA SENHA" id="updpasswordtoken_token"></div>
+							</div>
+							<div class="ui-grid-b">
+								<div class="ui-block-a"><input type="password" class="input_control" id="updpasswordtoken_newpassword" placeholder="NOVA SENHA"></div>
+								<div class="ui-block-b"><input type="password" class="input_control" id="updpasswordtoken_confirmnewpassword" placeholder="REPITA A SENHA"></div>
+								<div class="ui-block-c"><button type="button" class="btn_control_uppass" id="updpasswordtoken_btn_update">Alterar</button></div>
+							</div>
+						</div>
+					</div>
+					<button class="ui-btn btn_def_log"><i class="fa fa-facebook fa-lg"></i> &nbsp;&nbsp;&nbsp;  ENTRAR COM FACEBOOK</button>
+				</div>
+                <h5 class="title_control_border">CADASTRE-SE</h5>
+				<div class="NameU-yes-content"> 
+					<input type="text" class="input_control_uppercase" id="register_name" placeholder="SEU NOME">
+					<input type="text" class="input_control" id="register_email" placeholder="SEU EMAIL">
+					<input type="password" class="input_control" id="register_password" placeholder="SUA SENHA">
+					<input type="checkbox" id="register_termsofuse" class="sacola margin_icon">
+					<div class="NemeU-checkbox">LI E ACEITEI OS <a href="#" onclick="termsofuse()" data-transition="slide">TERMO DE USO</a></div>
+					
+					<button class="ui-btn btn_def_log" id="register_btn_create">CRIAR CONTA</button>
+				</div>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                
+            </div>
+        </div>
+        
+        <!-- /Meus Dados / Validar Device -->
+        <div data-role="page" id="vw_profile"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">MEU PERFIL</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content NameU-not-content">
+				<ul data-role="listview" class="list_class_dados" data-inset="true" id="list_profile_user">
+					<li id="profile_dados">
+						<img src="img/side-connect.png" class="image_profile" >
+						<h3><br></h3>
+					</li>
+					<li>
+						<legend class="NameU-img-center" id="btn_form_updatepass"><img src="img/down.png" class="img_open_control_singup" width="30px" height="30px"> MINHAS INFORMAÇÕES </legend>
+						<div class="form_updatepass" id="form_profile">
+							<br>
+							<div class="NameU-label">PRIMEIRO NOME</div>
+							<div class="ui-grid-solo">
+								<div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="INFORME O PRIMEIRO NOME" id="profile_firstname"></div>
+							</div>
+							<div class="NameU-label">SOBRENOME</div>
+							<div class="ui-grid-solo">
+								<div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="INFORME O SOBRENOME" id="profile_lastname"></div>
+							</div>
+                            <div class="NameU-label">CPF</div>
+							<div class="ui-grid-solo">
+								<div class="ui-block-a"><input type="text" class="input_control_uppercase" placeholder="INFORME O CPF" id="profile_document"></div>
+							</div>
+							<div class="NameU-label">DATA DE NASCIMENTO</div>
+							<div class="ui-grid-solo">
+								<div class="ui-block-a"><input type="date" class="input_control_uppercase" placeholder="INFORME O SEXO" id="profile_birthdate"></div>
+							</div>
+							<div class="NameU-label">SEXO</div>
+							<div class="control_cart_select" id="div_fielset_profile_sexo">
+								<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" class="NameU-center" id="fielset_profile_sexo">
+									<input type="radio" name="profile_sexo" id="profile_sexo_0" value="0">
+									<label for="profile_sexo_0" class="control_select_shipping">MASCULINO</label>
+									<input type="radio" name="profile_sexo" id="profile_sexo_1" value="1">
+									<label for="profile_sexo_1" class="control_select_shipping">FEMININO</label>
+								</fieldset>
+							</div>
+							<button type="button" class="ui-btn btn_def_log btn_logoff" id="btn_profile_save">SALVAR</button>
+						</div>
+					</li>
+					<li data-theme="d">
+						<a href="#vw_pushu" data-transition="slide" class="message_push_list" ><span id="count_push">0</span> Mensagens</a>
+					</li>
+				</ul> 
+				<div class="NameU-yes-content"> 
+                    <button type="button" class="ui-btn btn_def_log btn_logoff" id="btn_access_store_loja">ENTRAR NA LOJA</button>
+					<div id="list_local_store_show">
+						<div class="NemaU-linha"></div>
+                        <h5 class="title_header_profile">SEU ENDEREÇO ATUAL</h5>
+                        <ul data-role="listview" class="list_class_dados_center" id="mylocal_profile">
+                            <!--<li>
+                                Av Paulista, 2202, Loja 55<br>
+                                Tel.: 11 5005.5912
+                            </li>-->
+                        </ul> 
+                        <h5 class="title_header_profile">SUA LOJA ATUAL</h5>
+                        <ul data-role="listview" class="list_class_dados_center" id="mystore_profile">
+                            <!--<li>
+                                <strong>BUW - Shooping Center 3</strong><br>
+                                Av Paulista, 2202, Loja 55<br>
+                                Tel.: 11 5005.5912
+                            </li>-->
+                        </ul>
+                    </div>
+					<br>
+					<div id="div_flvalid"></div>
+					<br>
+					<div class="NemaU-linha"></div>
+					<h4 class="title_header_profile">SEUS DISPOSITIVOS</h4>
+					<ul data-role="listview" class="list_class_dados_center" id="my_list_device">
+						<!--<li>
+							<strong>ANDROID</strong><br>
+							I-9290
+						</li>-->
+					</ul>
+				</div>
+			</div>
+			<div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+				<div data-role="nav-bar" class="ui-navbar">
+					<ul class="ui-grid-solo">
+						<li class="ui-block-a margin_control_logoff"><button type="button" class="ui-btn btn_def_log btn_logoff" id="logoff_btn_desconectar">DESCONECTAR</button></li>
+					</ul>
+				</div>
+			</div>
+        </div>
+        
+        <!-- /Push -->
+        <div data-role="page" id="vw_pushu"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">MENSAGENS</h1>
+                <a  href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                <ul data-role="listview" data-inset="false"  class="list_control_pushu" id="list_control_pushu_select">
+                    <!--list_control_pushu_select<li class="control_item_pushu" data-id="0"> 
+                        <h4>Olá tudo bem!</h4>
+                        <p>Essa é a mensagem que enviamos para você acesse e confira todos os detalhes</p>
+                        <span>21/12/2015</span>
+                    </li>-->
+                </ul>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                
+            </div>
+        </div>
+        
+        <!-- /Push Mensagem -->
+        <div data-role="page" id="vw_push_msg"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <a href="#" class="ui-btn-right margin_icon" id="delete_push_btn"><img src="img/delete-preto.png" width="20px" height="20px"></a>
+                <h1 class="ui-title title_header_top" role="heading">MENSAGEM</h1>
+                <a  href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content msg_message_push" id="content_push_get">
+                <!--content_push_get<span>21/12/2015</span>
+                <h4>Olá tudo bem!</h4>
+                <p>Essa é a mensagem que enviamos para você acesse e confira todos os detalhes</p>-->
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                
+            </div>
+        </div>
+        
+        <!-- /Meus Pedidos -->
+        <div data-role="page" id="vw_my_order"  data-theme="a" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_15" data-position="left" data-display="push" data-dismissible="true" data-theme="b"></div>
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">MEUS PEDIDOS</h1>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                <ul data-role="listview" data-inset="false"  class="list_control_my_order" id="list_control_my_order_select">
+                    <!--<li data-id="0" class="btn_my_order_control"> 
+                        <p>NUMERO DO PEDIDO: <span>123456</span></p>
+                        <p>QUANTIDADE DE ITENS: <span>19</span></p>
+                        <p>DATA DA COMPRA: <span>22/12/2015</span></p>
+                        <p>VALOR DA COMPRA: <span>299,00</span></p>
+                        <p>SITUAÇÃO: <span>AGUARDANDO PAGAMENTO</span></p>
+                    </li>
+                    <li data-id="0" class="btn_my_order_control"> 
+                        <p>NUMERO DO PEDIDO: <span>123456</span></p>
+                        <p>QUANTIDADE DE ITENS: <span>19</span></p>
+                        <p>DATA DA COMPRA: <span>22/12/2015</span></p>
+                        <p>VALOR DA COMPRA: <span>299,00</span></p>
+                        <p>SITUAÇÃO: <span>AGUARDANDO PAGAMENTO</span></p>
+                    </li>
+                    <li data-id="0" class="btn_my_order_control"> 
+                        <p>NUMERO DO PEDIDO: <span>123456</span></p>
+                        <p>QUANTIDADE DE ITENS: <span>19</span></p>
+                        <p>DATA DA COMPRA: <span>22/12/2015</span></p>
+                        <p>VALOR DA COMPRA: <span>299,00</span></p>
+                        <p>SITUAÇÃO: <span>AGUARDANDO PAGAMENTO</span></p>
+                    </li>-->
+                </ul>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false" >
+                <a href="#sidebar_menu_15" class="ui-btn-left ui-btn sacola_cat"><img src="img/menu.png" width="30px" height="30px"></a>
+                <a href="#" onclick="mylocal()" class="ui-btn-right sacola_cat"><img src="img/sacola-off.png" class="NameU-img-sacola" width="30px" height="27px"></a>
+                <p class="btn-footer NameU-btn-footer" onclick="category()"><span>selecione uma categoria <img src="img/carat-top.png" width="30px" height="10px"></span></p>
+            </div>
+        </div>
+        
+        <!-- /Pedido -->
+        <div data-role="page" id="vw_order"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">PEDIDO</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content my_order_control">
+                <div class="card_my_order_control">
+                    <ul data-role="listview" data-inset="false"  class="list_control_my_order" id="order_list_user">
+                    <!--<li> 
+                        <p>NUMERO DO PEDIDO: <span><strong>123456</strong></span></p>
+                        <p>QUANTIDADE DE ITENS: <span><strong>19</strong></span></p>
+                        <p>DATA DA COMPRA: <span><strong>22/12/2015</strong></span></p>
+                        <p>TIPO DE PAGAMENTO: <span><strong>PAGSEGURO</strong></span></p>
+                        <p>TIPO DE ENTREGA: <span><strong>RETIRAR NA LOJA</strong></span></p>
+                        <p>SITUAÇÃO: <span><strong>AGUARDANDO PAGAMENTO</strong></span></p>
+                    </li>-->
+                    </ul>
+                    <ul data-role="listview" class="list_cart_close" id="list_cart_control_order">
+                        <!--<li data-id="0" data-sku="0" >
+                             <img src="img/02.png" class="store_search_item">
+                             <h4  class="store_search_item">Saia e menina</h4>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    TAMANHO
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        GGG
+                                    </span>
+                                </div>
+                             </div>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    QUANTIDADE
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        1
+                                    </span>
+                                </div>
+                             </div>
+                             <p  class="store_search_item"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                        </li>
+                        <li data-id="0" data-sku="0" >
+                             <img src="img/02.png" class="store_search_item">
+                             <h4  class="store_search_item">Saia e menina</h4>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    TAMANHO
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        GGG
+                                    </span>
+                                </div>
+                             </div>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    QUANTIDADE
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        1
+                                    </span>
+                                </div>
+                             </div>
+                             <p  class="store_search_item"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                        </li>
+                        <li data-id="0" data-sku="0" >
+                             <img src="img/02.png" class="store_search_item">
+                             <h4  class="store_search_item">Saia e menina</h4>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    TAMANHO
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        GGG
+                                    </span>
+                                </div>
+                             </div>
+                             <div class="ui-grid-a sku_control_cart">
+                                <div class="ui-block-a">
+                                    QUANTIDADE
+                                </div>
+                                <div class="ui-block-b">
+                                    <span class="control_select_sku_cart">
+                                        1
+                                    </span>
+                                </div>
+                             </div>
+                             <p  class="store_search_item"><span class="price_product_tier">de: 100</span> <span class="tier_product">por: 99</span></p>
+                        </li>-->
+                    </ul>
+                    <br>
+                    <div class="control_cart_price" id="order_close_end">
+                        <!--<div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">
+                                SUB TOTAL
+                            </div>
+                            <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">
+                                DESCONTOS
+                            </div>
+                            <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>
+                        <div class="ui-grid-b class_sum_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">
+                                ENTREGA
+                            </div>
+                            <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>
+                        <div class="ui-grid-b total_reg">
+                            <div class="ui-block-a adjuste_cart_checkout">
+                                TOTAL
+                             </div>
+                            <div class="ui-block-b">
+                            </div>
+                            <div class="ui-block-c">
+                                299,00
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                
+            </div>
+        </div>
+        
+        <!-- /Social -->
+        <div data-role="page" id="vw_socialu"  data-theme="a" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_17" data-position="left" data-display="push" data-dismissible="true" data-theme="b"></div>
+            <div data-role="content" role="main" class="ui-content pages div_content menu_card">
+                <div class="area_hash" id="area_social_hash">
+                    <!--<a href="#" class="link click_social" data-id="1">#SemanaLançamento</a> 
+                    <a href="#" class="link1 click_social" data-id="1">#cocktailBUW</a> 
+                    <a href="#" class="link click_social" data-id="1">#executiva</a> 
+                    <a href="#" class="link1 click_social" data-id="1">#happyHour</a> 
+                    <a href="#" class="link click_social" data-id="1">#SemanaLançamento</a> 
+                    <a href="#" class="link1 click_social" data-id="1">#Verão2016</a>--> 
+                </div>
+                <ul data-role="listview" class="list_class_card_social" id="list_class_card_social_id">
+                    <!--<li>
+                         <div class="control_card">
+                            <div class="connect_card">
+                                <img class="fotos img_user_social" src="img/side-connect.png" width="33px" height="33px"> 
+                                <a href="#vw_socialu_msg">
+                                    <span >#SemanaLançamento</span>
+                                    <span></span>
+                                    <span class="dt_card">
+                                        <p>15 favoritos &#9825;</p>
+                                        <p>04/11/2015 ÁS 16:33</p>
+                                    </span>
+                                    <p class="p_card">Esse semana estamos lançando o aplicativo da nosso marcar estamos contentes e esperamos que vocês goste muito dessa novidade...</p>
+                                    <img src="img/up_class.png" class="img_card" width="60%">
+                                    <p class="p_comment">Gostei muito do aplicativo ta lindo...</p>
+                                </a>
+                                <div class="user_control">
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/plus_user.png" width="28px" height="28px"> 
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                         <div class="control_card">
+                            <div class="connect_card">
+                                <img class="fotos img_user_social" src="img/side-connect.png" width="33px" height="33px"> 
+                                <a href="#vw_socialu_msg">
+                                    <span >#SemanaLançamento</span>
+                                    <span></span>
+                                    <span class="dt_card">
+                                        <p>15 favoritos &#9825;</p>
+                                        <p>04/11/2015 ÁS 16:33</p>
+                                    </span>
+                                    <p class="p_card">Esse semana estamos lançando o aplicativo da nosso marcar estamos contentes e esperamos que vocês goste muito dessa novidade...</p>
+                                    <img src="img/up_class.png" class="img_card" width="60%">
+                                    <p class="p_comment">Gostei muito do aplicativo ta lindo...</p>
+                                </a>
+                                <div class="user_control">
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/side-connect.png" width="28px" height="28px"> 
+                                    <img class="fotos user_control_images" src="img/plus_user.png" width="28px" height="28px"> 
+                                </div>
+                            </div>
+                        </div>
+                    </li>-->
+                </ul>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <h6 class="btn-footer">&nbsp;</h6>
+                <a href="#sidebar_menu_17" class="ui-btn-left ui-btn sacola margin_icon"><img src="img/menu.png" width="30px" height="30px"></a>
+                <a href="#" id="click_top_alltheme" class="ui-btn-right NameU-icon-up"><img src="img/btn_up.png"></a>
+            </div>
+        </div>
+        
+        <!-- /Mensagens -->
+        <div data-role="page" id="vw_socialu_msg"  data-theme="a" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_18" data-position="left" data-display="push" data-dismissible="true" data-theme="b">
+            </div>
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+            </div>
+            <div data-role="content" role="main" class="ui-content menu_social_control">
+                <div class="area_hash" id="moretheme_social_msg"></div>
+                <ul data-role="listview" class="list_class_card_social" id="ul_dados_theme"></ul>
+				<!--
+                <div id="product_highlight" class="product_random">
+                    <div class="ui-grid-a">
+                        <div class="ui-block-a fotos click_sku" data-id="0" data-sku="0">
+                            <img src="img/01.png" width="100%">
+                            <div class="box_product_show">
+                                <h5>Vestido Viés Dados Sistema</h5>
+                                <p class="store_search_item">
+                                    <span class="price_product_tier_box">de: 100</span> 
+                                    <span class="tier_product_box">por: 99</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="ui-block-b fotos click_sku" data-id="0" data-sku="0">
+                            <img src="img/02.png" width="100%">
+                            <div class="box_product_show">
+                                <h5>Vestido Viés Dados Sistema</h5>
+                                <p class="store_search_item">
+                                    <span class="price_product_tier_box">de: 100</span> 
+                                    <span class="tier_product_box">por: 99</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box_comment_control">
+                    <a href="#vw_socialu_comment" data-theme="c" class="btn_comment_msg">VER COMENTÁRIOS &bull; <span>34</span></a>   
+                </div>
+				-->
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <h6 class="btn-footer"></h6>
+                <a href="#sidebar_menu_18" class="ui-btn-left ui-btn  sacola margin_icon"><img src="img/menu.png" width="30px" height="30px"></a>
+                <a href="#" data-rel="back" class="ui-btn-right sacola margin_icon"><img src="img/back.png" width="30px" height="27px"></a>
+            </div>
+        </div>
+        
+        <!-- /Comentários -->
+        <div data-role="page" id="vw_socialu_comment"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">COMENTÁRIOS</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content menu_social_control">
+                <ul data-role="listview" class="list_class_card_social" id="ul_dados_theme_comment"></ul>
+                <ul data-role="listview" class="list_class_card_social" id="ul_comment"></ul>
+            </div>
+             <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <div class="comment_center">
+                    <div class="box_comment_control comment_area">
+                        <textarea rows="2" placeholder="Envie seu comentário" class="NameU_comment_area_text" id="textarea_message_comment"></textarea>
+                        <button type="button" class="ui-btn btn_class_comment" id="btn_enviar_comment">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /New Message -->
+        <div data-role="page" id="vw_socialu_new_message"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">NOVO POST</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/fechar.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content menu_social_control">
+                <ul data-role="listview" class="list_class_card_social">
+                    <li>
+                         <div class="control_card">
+                            <img class="img_comment" src="img/side-connect.png" width="33px" height="33px"> 
+                            <div class="connect_card">
+                                <a href="#vw_social_item">
+                                    #SemanaLançamento
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <div class="comment_center">
+                    <div class="box_comment_control comment_area">
+                        <textarea rows="2" placeholder="Envie seu comentário" class="NameU_comment_area_text"></textarea>
+                        <button type="button" class="ui-btn btn_class_comment" name="" id="">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /Termos de uso -->
+        <div data-role="page" id="vw_terms_privacy"  data-theme="a" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_21" data-position="left" data-display="push" data-dismissible="true" data-theme="b">
+            </div>
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">TERMOS DE USO</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content term_control_text">
+                <p id="text_termo"></p>
+            </div>
+        </div>
+        
+        <!-- /Help Desk -->
+        <div data-role="page" id="vw_help_desk"  data-theme="a" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_22" data-position="left" data-display="push" data-dismissible="true" data-theme="b">
+            </div>
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">ATENDIMENTO</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content term_control_text">
+                <ul data-role="listview" data-inset="false"  class="list_control_help_desk" id="list_control_help_desk_select">
+                   <!-- <li class="control_item_help_desk" data-id="0"> 
+                        <h4><strong>Protocolo:</strong> 2015/7.9.12<br>EM ABERTO<br><small>BUW IBIRAPUERA</small></h4>
+                        <p>Essa é a mensagem que enviamos para você acesse e confira todos os detalhes</p>
+                        <span>21/12/2015</span>
+                    </li>-->
+                </ul>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <h6 class="btn-footer"><a href="#vw_new_help_desk_message" data-transition="slideup" class="footer_link">NOVO ATENDIMENTO</a></h6>
+                <a href="#sidebar_menu_22" class="ui-btn-left ui-btn  sacola margin_icon"><img src="img/menu.png" width="30px" height="30px"></a>
+                <a href="#" onclick="mylocal()" class="ui-btn-right sacola margin_icon"><img src="img/sacola-off.png" class="NameU-img-sacola" width="30px" height="27px"></a> 
+            </div>
+        </div>
+        
+        <!-- /Help Desk Message -->
+        <div data-role="page" id="vw_help_desk_message"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">ATENDIMENTO</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                <div id="helpdesk_message">
+                    <h4><strong>Protocolo:</strong> 2015/7.9.12<br>EM ABERTO<br><small>BUW IBIRAPUERA</small></h4>
+                    <p>Essa é a mensagem que enviamos para você acesse e confira todos os detalhes</p>
+                    <span>21/12/2015</span>
+                </div>
+                <div class="list_control_help_desk_message" id="list_comment_help">
+                   <!-- <div class="for_help_desk">
+                        <strong>Marcio</strong>
+                        <p>Essa é a mensagem que enviamos para você acesse e confira todos os detalhes</p>
+                        <span>21/12/2015</span>
+                    </div>
+                    <div class="to_help_desk">
+                        <strong>BUW IBIRAPUERA</strong>
+                        <p>Essa é a mensagem que enviamos para você acesse e confira todos os detalhes</p>
+                        <span>21/12/2015</span>
+                    </div>
+                    <div class="for_help_desk">
+                        <strong>Marcio</strong>
+                        <p>Essa é a mensagem que enviamos para você acesse e confira todos os detalhes</p>
+                        <span>21/12/2015</span>
+                    </div>-->
+                </div>
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false" id="footer_helpchat">
+                <div class="comment_center">
+                    <div class="box_comment_control comment_area">
+                        <textarea rows="2" placeholder="Envie seu comentário" class="NameU_comment_area_text" id="message_comment"></textarea>
+                        <button type="button" class="ui-btn btn_class_comment" id="btn_comment_area_text">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /Help Desk Message -->
+        <div data-role="page" id="vw_new_help_desk_message"  data-theme="a" class="">
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">NOVO CHAMADO</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/fechar.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                 <ul data-role="listview" class="list_class_dados_center" id="get_affiliate_helpdesk">
+                     <li>
+                        <a  href="#" onclick="mylocal()" >Alterar Loja</a>
+                        <br>
+                        <strong>BUW - Shooping Center 3</strong><br>
+                        Av Paulista, 2202, Loja 55<br>
+                        Tel.: 11 5005.5912
+                     </li>
+                 </ul>
+                <div class="comment_center">
+                    <br>
+                    <label for="type_help" class="lbl_type_help">Selecione o tipo: </label>
+                    <select  class="sku_product select_type_help" id="type_helpdesk">
+                        <option value="2" selected="selected">Solicitação</option>
+                        <option value="1">Reclamação</option>
+                        <option value="3">Sugestão</option>
+                        <option value="0">Elogio</option>
+                    </select>
+                    <div class="box_comment_control">
+                        <textarea rows="10" placeholder="Como podemos te ajudar?" data-theme="b" class="textarea_help_desk" id="text_new_helpdesk"></textarea>
+                    </div>
+                    <p>Após a abertura do chamado será gerado um número de protocolo para consulta.</p>
+                </div>
+                
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <div data-role="nav-bar" class="ui-navbar">
+                    <ul class="ui-grid-solo">
+                        <li class="ui-block-a margin_control_logoff"><button type="button" class="ui-btn btn_def_log btn_logoff" id="btn_new_helpdesk">NOVO CHAMADO</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- /Detalhes da Affiliada-->
+        <div data-role="page" id="vw_affiliate_detail"  data-theme="a" class="">
+            <div data-role="panel" class="menu_uapps"  id="sidebar_menu_23" data-position="left" data-display="push" data-dismissible="true" data-theme="b">
+            </div>
+            <div data-role="header" data-position="fixed" class="ios_control NameU-header" data-tap-toggle="false" >
+                <h1 class="ui-title title_header_top" role="heading">ESTABELECIMENTO</h1>
+                <a href="#" data-rel="back" class="ui-btn-left margin_icon"><img src="img/back.png" width="20px" height="20px"></a>
+            </div>
+            <div data-role="content" role="main" class="ui-content">
+                
+            </div>
+            <div data-role="footer"  data-position="fixed" class="footer_control" data-tap-toggle="false">
+                <a href="#sidebar_menu_23" class="ui-btn-left ui-btn sacola_cat"><img src="img/menu.png" width="30px" height="30px"></a>
+                <a href="#" onclick="mylocal()" class="ui-btn-right sacola_cat"><img src="img/sacola-off.png" class="NameU-img-sacola" width="30px" height="27px"></a> 
+                <p class="btn-footer NameU-btn-footer" onclick="category()">selecione uma categoria <img src="img/carat-top.png" width="30px" height="10px"></p>
+            </div>
+        </div>
+        
+         <!--/Toogle -->
+        <div id="toogle_return" class="toogle_nameu">
+        </div>
+        
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/nameu-function-1.0.js"></script>
+        <script type="text/javascript" src="js/nameu-db-1.0.js"></script>
+        <script type="text/javascript" src="js/pages.js"></script>
+    </body>
+</html>
