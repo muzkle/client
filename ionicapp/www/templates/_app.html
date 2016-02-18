@@ -14,39 +14,8 @@
         <ion-header-bar class="bar-stable">
             <h1 class="title">Left</h1>
         </ion-header-bar>
-        <ion-content>
-            <ion-list>
-                <ion-item menu-close href="#/app/home">
-                    Início
-                </ion-item>
-                <ion-item menu-close href="#/app/cart">
-                    Minha Sacola
-                </ion-item>
-                <ion-item menu-close href="#/app/orders">
-                    Meus Pedidos
-                </ion-item>
-                <ion-item menu-close href="#/app/bookmarks">
-                    Meus Favoritos
-                </ion-item>
-                <ion-item menu-close href="#/app/social">
-                    Trends
-                </ion-item>
-                <ion-item menu-close href="#/app/vitrine">
-                    Vitrine
-                </ion-item>
-                <ion-item menu-close href="#/app/affiliate">
-                    Lojas próximas a mim
-                </ion-item>
-                <ion-item menu-close href="#/app/atendimento">
-                    Atendimento
-                </ion-item>
-                <ion-item menu-close href="#/app/conditions">
-                    Termos de uso
-                </ion-item>
-                <ion-item menu-close ng-click="login()">
-                    Login
-                </ion-item>
-            </ion-list>
+        <ion-content>            
+            <ng-include src="'templates/shared/_menu.html'"></ng-include>
         </ion-content>
     </ion-side-menu>
 </ion-side-menus>

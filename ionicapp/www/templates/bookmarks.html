@@ -1,17 +1,20 @@
 ﻿<ion-view view-title="Meus Favoritos">
-  <ion-content>
-      <div data-role="content" role="main" class="ui-content">
-          <div data-role="navbar" class="wish_list_control ui-navbar" role="navigation">
-              <div id="del_wishlist_product">LIMPAR LISTA</div>
-          </div><!-- /navbar -->
-          <ul data-role="listview" class="list_class_wishlist ui-listview" id="wishlist_list">
-              <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child ui-last-child">
-                  <img src="https://s3.amazonaws.com/nameuimage/buw.nameu.com.br/product/33.png?409" class="store_wishlist_item item_click_wishlist" data-id="33" data-sku="0" data-type="0">
-                  <img src="img/fechar.png" width="30px" class="remove_control_item_wishlist" data-id="68">	<br>
-                  <h4 class="store_wishlist_item item_click_wishlist" data-id="33" data-sku="0" data-type="0">Vestido Viés Preto</h4>
-                  <p class="store_wishlist_item item_click_wishlist" data-id="33" data-sku="0" data-type="0"></p>
-              </li>
-          </ul>
-      </div>
-  </ion-content>
+    <ion-content>
+        <div data-role="content" role="main" class="ui-content">
+            <div data-role="navbar" class="wish_list_control ui-navbar" role="navigation">
+                <div id="del_wishlist_product">LIMPAR LISTA</div>
+            </div><!-- /navbar -->
+            <ul data-role="listview" class="list_class_wishlist ui-listview" id="wishlist_list">
+                <li class="ui-li-static ui-body-inherit ui-li-has-thumb ui-first-child ui-last-child">
+                    <img src="https://s3.amazonaws.com/nameuimage/buw.nameu.com.br/product/33.png?409" class="store_wishlist_item item_click_wishlist" data-id="33" data-sku="0" data-type="0">
+                    <img src="img/fechar.png" width="30px" class="remove_control_item_wishlist" data-id="68">	<br>
+                    <h4 class="store_wishlist_item item_click_wishlist" data-id="33" data-sku="0" data-type="0">Vestido Viés Preto</h4>
+                    <p class="store_wishlist_item item_click_wishlist" data-id="33" data-sku="0" data-type="0"></p>
+                </li>
+            </ul>
+        </div>
+    </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>

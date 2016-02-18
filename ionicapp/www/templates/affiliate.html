@@ -1,5 +1,17 @@
-﻿<ion-view view-title="Afiliado">
-  <ion-content>
-    <h1>Afiliado</h1>
-  </ion-content>
+﻿<ion-view view-title="Defina sua localização">
+    <ion-content>
+        <div data-role="content" role="main" class="ui-content">
+            <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="input_control_uppercase" id="affiliate_logradouro_rua" placeholder="Digite o endereço de entrega"></div>
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="input_control_uppercase" id="affiliate_logradouro_numero" placeholder="NÚMERO"></div></div>
+                <div class="ui-block-b"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="input_control_uppercase" id="affiliate_logradouro_cep" placeholder="CEP"></div></div>
+                <div class="ui-block-c"><div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset"><input type="text" class="input_control_uppercase" id="affiliate_logradouro_bairro" placeholder="BAIRRO"></div></div>
+            </div>
+            <div id="div_affiliate_definir_end"><button class="btn_def_log NameU-btn ui-btn" id="affiliate_definir_end">DEFINIR ENDEREÇO</button></div>
+            <h4 class="title_header">ESCOLHA UMA LOJA</h4>
+            <ul data-role="listview" class="list_class_dados_center ui-listview" id="affiliate_list"><li class="click_affiliates ui-li-static ui-body-inherit ui-first-child ui-last-child NameU-set-affiliates" id="li_affiliates_14" data-id="14" data-name="BUW - BUW FLAGSHIP STORE" data-cep="04029902" data-email="buw.ibirapuera@buwbrasil.com">	<strong>BUW - BUW FLAGSHIP STORE</strong><br>	<div class="NameU-dados-aff"><br>Avenida Ibirapuera, 3103 - Piso Térreo<br>Moema - São Paulo<br>04029902 - SP - Brasil<br>Tel.: (11) 50493168<br>buw.ibirapuera@buwbrasil.com</div></li> </ul>
+        </div>
+    </ion-content>
+    <ion-footer-bar ng-include="'templates/shared/_footer.html'">
+    </ion-footer-bar>
 </ion-view>

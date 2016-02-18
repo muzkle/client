@@ -1,9 +1,12 @@
 ﻿<ion-view view-title="Registro">
-  <ion-content>
-    <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+        <ion-list>
+            <ion-toggle ng-model="settings.enableFriends">
+                Enable Friends
+            </ion-toggle>
+        </ion-list>
+    </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>

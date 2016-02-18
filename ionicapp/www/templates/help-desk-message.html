@@ -1,5 +1,24 @@
 ﻿<ion-view view-title="Mensagem do Suporte">
-  <ion-content>
-    <h1>Mensagem do Suporte</h1>
-  </ion-content>
+    <ion-content>
+        <ul data-role="listview" class="list_class_dados_center ui-listview" id="get_affiliate_helpdesk"><li data-id="14" class="ui-first-child ui-last-child">   <a href="#" onclick="mylocal()" class="ui-btn ui-btn-icon-right ui-icon-carat-r">Alterar Loja</a>   <br>	<strong>BUW - BUW FLAGSHIP STORE</strong><br>	<div class="NameU-dados-aff"><br>Avenida Ibirapuera, 3103 - Piso Térreo<br>Moema - São Paulo<br>04029902 - SP - Brasil<br>Tel.: (11) 50493168<br>buw.ibirapuera@buwbrasil.com</div></li></ul>
+        <div class="comment_center">
+            <br>
+            <label for="type_help" class="lbl_type_help">Selecione o tipo: </label>
+            <md-input-container ng-init="categoriaId = ''" layout="row" layout-align="center center">
+                <md-select name="myModel" ng-model="categoriaId" style="width: 100%">
+                    <md-option value="">Solicitação</md-option>
+                    <md-option value="1">Sugestão</md-option>
+                    <md-option value="2">Sugestão</md-option>
+                    <md-option value="3">Elogio</md-option>
+                </md-select>
+            </md-input-container>
+            <div class="box_comment_control">
+                <textarea rows="10" placeholder="Como podemos te ajudar?" data-theme="b" class="textarea_help_desk ui-input-text ui-shadow-inset ui-body-b ui-corner-all ui-textinput-autogrow" id="text_new_helpdesk" style="height: 51px;"></textarea>
+            </div>
+            <p>Após a abertura do chamado será gerado um número de protocolo para consulta.</p>
+        </div>
+    </ion-content>
+    <ion-footer-bar>
+        <ng-include src="'templates/shared/_footer-help-desk.html'"></ng-include>
+    </ion-footer-bar>
 </ion-view>
